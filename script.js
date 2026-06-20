@@ -8,7 +8,8 @@ filterBtns.forEach(btn => {
     btn.classList.add('active');
     const filter = btn.dataset.filter;
     items.forEach(item => {
-      const show = filter === 'all' || item.dataset.cat === filter;
+      const cats = (item.dataset.cat || '').split(' ');
+      const show = filter === 'all' || cats.includes(filter);
       item.style.display = show ? 'block' : 'none';
     });
   });
